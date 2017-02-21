@@ -1,10 +1,13 @@
 <?php
 session_start();
+
 if (isset($_SESSION['usuario'])){
-	header('Location: welcome.php');
-}
-else{
+	$lista = unserialize($_SESSION['rutas']); 
+	//var_dump($lista);
+
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -26,13 +29,28 @@ else{
 	<title itemprop="name">Cargi-Propen</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript">document.createElement('content');(function(){}).call(this);</script>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body jscontroller="csphid" jsmodel="gmV9qc" jsaction="rcuQ6b:WYd;F9BhIf:uAM5ec;w047Tc:dj7Cne;">
 	<div>
 		<div class="M63kCb"></div>
 		<div class="fktJzd AKpWA fOU46b" jsname="UzWXSb">
-
+			<header id="atIdViewHeader">
+				<div class="BbxBP" jscontroller="YVkQ9" jsaction="rcuQ6b:ywL4Jf;l7cyfd:ywL4Jf;jLKRTe:ywL4Jf; keydown:Hq2uPe;" data-top-navigation="false">
+					<div class="VLoccc ELAV1d" jsname="rtFGi">
+						<div class="Pvc6xe">
+							<div jsname="I8J07e" class="TlfmSc">
+								<a jsname="jIujaf" class="QTKDff">Cargi-Propen</a>
+							</div>
+							<div jsname="I8J07e" class="TlfmSc" align="rigth">
+								<a href="logout.php" jsname="jIujaf" class="QTKDff">Cerrar	</a>
+							</div>
+						</div>
+						<div jsname="mADGA" class="zDUgLc">
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript">DOCS_timing['navv'] = new Date().getTime();</script>
+			</header>
 			<div role="main" class="UtePc RCETm yMcSQd Ly6Unf" jscontroller="oVfKv" jsaction="Jddzq: Ffcznf;">
 				<section id="h.p_Ky5K5OEij8ux" class="yaqOZd LB7kq cJgDec nyKByd O13XJf" style="">
 					<div class="Nu95r">
@@ -48,18 +66,12 @@ else{
 											<div class="tyJCtd baZpAe"></div>
 										</div>
 									</div>
-									<div id="h.p_CI-ca8kmj8u5" class="hJDwNd-AhqUyc-OiUrBf jXK9ad D2fZ2 GNzUNc">
-										<div class="jXK9ad-SmKAyb jXK9ad-SmKAyb-c4YZDc">		
+									<div id="h.p_CI-ca8kmj8u5" class="hJDwNd-AhqUyc-OiUrBf jXK9ad D2fZ2 GNzUNc">		
+											<div class="jXK9ad-SmKAyb jXK9ad-SmKAyb-c4YZDc">
 												<div class="tyJCtd mGzaTb baZpAe lkHyyc">
-													<div id="resultado"></div>
-													<form method="POST" action="return false" onsubmit="return false" align="center">
-														<h1 id="h.p_RGmoNN5Bj8vJ" class="zfr3Q duRjpb" style="text-align: center;">Inicio de Sesi&oacute;n</h1>
-														<br><span  class="zfr3Q QTKDff">Usuario:</span><br><input type="text" name="user" id="user" placeholder="Usuario">
-														<br><span  class="zfr3Q QTKDff">Clave:</span><br><input type="password" name="pass" id="pass" placeholder="*********">
-														<br><button id="Validar">Entrar</button>
-													</form>
+													<h1 id="h.p_RGmoNN5Bj8vJ" class="zfr3Q duRjpb" style="text-align: center;">Portal de Aplicaciones</h1>
 												</div>
-										</div>
+											</div>
 									</div>
 									<div class="hJDwNd-AhqUyc-ibL1re jXK9ad D2fZ2 L6cTce-purZT L6cTce-pSzOP">
 										<div class="jXK9ad-SmKAyb jXK9ad-SmKAyb-c4YZDc">
@@ -71,29 +83,48 @@ else{
 						</div>
 					</div>
 				</section>
+				<section id="h.p_WFyOx_wsYVjA" class="yaqOZd" style="">
+					<div class="yaqOZd IFuOkc"></div>
+					<div class="mYVXT">
+						<div class="LS81yb VICjCf">
+							<div class="hJDwNd-AhqUyc-uQSCkd JNdkSc">
+								<div class="oKdM2c" align="center">
 
+<?php				
+					foreach ($lista as $value) {		
+?>
+									<div id="h.p_hRyepA-VGPCy" class="hJDwNd-AhqUyc-wNfPc pSzOP-AhqUyc-wNfPc jXK9ad D2fZ2">
+										<div class="jXK9ad-SmKAyb jXK9ad-SmKAyb-c4YZDc">
+											<div class="tyJCtd baZpAe">
+												<div class="t3iYD">
+													<a href="<?php echo $value['ruta']?>" target="_blank">
+														<img src="imagenes/<?php echo $value['imagen']?>" class="CENy8b"/>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+<?php
+}
+?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 			</div>
 		</div>
 	</div>
 </body>
 </html>
 
-<script type="text/javascript">
-	$('#Validar').on('click',function(){
-		user=$('#user').val();
-		pass=$('#pass').val();
-		$.ajax({
-			url: 'validar.php',
-			type: 'POST',
-			data: 'user=' + user + '&pass=' + pass,
-			success: function(resp){
-				$('#resultado').html(resp);
-			}
-		});
-	});
 
-</script>
-
+													
+						
 <?php
+}
+else{
+	header("Location: index.php");
+	exit();
 }
 ?>
