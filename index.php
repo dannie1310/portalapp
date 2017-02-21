@@ -53,7 +53,7 @@ else{
 												<div class="tyJCtd mGzaTb baZpAe lkHyyc">
 													<div id="resultado"></div>
 													<form method="POST" action="return false" onsubmit="return false" align="center">
-														<h1 id="h.p_RGmoNN5Bj8vJ" class="zfr3Q duRjpb" style="text-align: center;">Inicio de Sesi&oacute;n</h1>
+														<h3 id="h.p_RGmoNN5Bj8vJ" class="zfr3Q duRjpb" style="text-align: center;">Inicio de Sesi&oacute;n</h3>
 														<br><span  class="zfr3Q QTKDff">Usuario:</span><br><input type="text" name="user" id="user" placeholder="Usuario">
 														<br><span  class="zfr3Q QTKDff">Clave:</span><br><input type="password" name="pass" id="pass" placeholder="*********">
 														<br><button id="Validar">Entrar</button>

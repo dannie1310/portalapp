@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con = mysql_connect('localhost', 'sca', 'w6FCR56sLT')  or die('No se pudo conectar: ' . mysql_error());
+$con = mysql_connect('localhost', 'cargipropen', 'car123#*')  or die('No se pudo conectar: ' . mysql_error());
 mysql_select_db('igh',$con) or die('No se pudo seleccionar la base de datos');
 $user = $_POST['user'];
 $pass = md5($_POST['pass']);
