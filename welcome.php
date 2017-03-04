@@ -90,22 +90,30 @@ if (isset($_SESSION['usuario'])){
 							<div class="hJDwNd-AhqUyc-uQSCkd JNdkSc">
 								<div class="oKdM2c" align="center">
 
-<?php				
-					foreach ($lista as $value) {		
+<?php	
+$i=0;
+					foreach ($lista as $value) {
+                                            if($i<=9){
+                                            $i++;
+                                            }else{
+                                                $i=1;
+                                            }
 ?>
 									<div id="h.p_hRyepA-VGPCy" class="hJDwNd-AhqUyc-wNfPc pSzOP-AhqUyc-wNfPc jXK9ad D2fZ2">
 										<div class="jXK9ad-SmKAyb jXK9ad-SmKAyb-c4YZDc">
 											<div class="tyJCtd baZpAe">
 												<div class="t3iYD">
 													<a href="<?php echo $value['ruta']?>" target="_blank">
-														<img src="imagenes/<?php echo $value['imagen']?>" class="CENy8b"/>
+                                                                                                            <img src="imagenes/imagen<?php echo $i ?>.png" class="CENy8b"/>
+                                                                           
 													</a>
+                                                                                                    <p class="p"><?php echo $value['menu']?></p>
 												</div>
 											</div>
 										</div>
 									</div>
 <?php
-}
+                                        }
 ?>
 								</div>
 							</div>

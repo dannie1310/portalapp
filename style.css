@@ -921,3 +921,38 @@
 	.PsKE7e{
 	font-size: 14px;
 }}
+
+ .boton{
+        font-size:10px;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:white;
+        background:#638cb5;
+        border:0px;
+        width:180px;
+        height:222px;
+       }
+       
+  ul {
+  list-style-type:none;
+  cursor:pointer; 
+  width:200px;	
+  }
+
+  ul li {
+  color:black;
+  padding:10px;
+  display:block;
+  border:1px solid #8F8F8F;
+  border-radius:10px;
+  background-color:#F3F0F0;
+  margin-bottom:5px;
+  }
+
+  ul li:hover {
+  background-color:#D0D0D0;
+}
+
+p {
+  font-family: Georgia, Cambria, Times, "Times New Roman";
+}
